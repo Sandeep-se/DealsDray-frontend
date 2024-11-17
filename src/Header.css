@@ -1,0 +1,21 @@
+.header{
+    flex: 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    color: white;
+    padding: 0 20px; 
+}
+
+.header>div{
+    margin: 0 15px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
