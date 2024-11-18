@@ -15,7 +15,21 @@ const EditEmployee = () => {
     const navigate=useNavigate()
     const handleSubmit=async(e)=>{
         e.preventDefault()
-        const response=await axios.put(`http://localhost:8000/updateEmployee/${employeeId}`,{name,email,mobileNo,designation,gender,course,image},{withCredentials:true})
+        const formData=new FormData();
+        formData.append("name",name)
+        formData.append("email",email)
+        formData.append("mobileNo",mobileNo)
+        formData.append("designation",designation)
+        formData.append("gender",gender)
+        formData.append("course",course)
+        formData.append("img",image)
+        const response=await axios.put(`http://localhost:8000/updateEmployee/${employeeId}`,formData,
+          {
+              headers:{
+                "Content-Type": "multipart/form-data",
+              },
+              withCredentials:true
+          })
         try {
             if(response.data.message==='please login'){
               navigate('/login')
